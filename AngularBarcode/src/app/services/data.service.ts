@@ -16,18 +16,18 @@ export class DataService {
   post(url, data) {
       let httpHeaders = new HttpHeaders().set('Accept', 'application/json').set('Access-Control-Allow-Origin', '*').
       set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-      return this.http.post(url, data, { headers: httpHeaders});
+      return this.http.post(url, data);
   }
 
   put(url, data) {
       let httpHeaders = new HttpHeaders().set('Accept', 'application/json').set('Access-Control-Allow-Origin', '*').
       set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-      return this.http.put(url, data, { headers: httpHeaders });
+      return this.http.put(url, data);
   }
   delete(url) {
     let httpHeaders = new HttpHeaders().set('Accept', 'application/json').set('Access-Control-Allow-Origin', '*').
     set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    return this.http.delete(url, { headers: httpHeaders });
+    return this.http.delete(url);
 }
   login(url, data) {
       let httpHeaders = new HttpHeaders().set('Accept', 'application/json').set('Access-Control-Allow-Origin', '*').
