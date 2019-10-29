@@ -19,7 +19,7 @@ export class UpdateproductComponent implements OnInit {
   ngOnInit() {
   }
   getProductById(){
-    let url = environment.url + "/product/id?id=" + this.id;
+    let url = environment.url + "/product/id?id=" + this.id +"&businessName="+localStorage.getItem("businessName");
     console.log("url " + url);
     this.httpService.get(url).subscribe(res=>{
       this.product = res;

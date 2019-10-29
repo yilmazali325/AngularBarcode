@@ -4,7 +4,7 @@
     <div class="form-group">
       <label class="control-label col-sm-4" for="id">User Id:</label>
       <div class="col-sm-10">
-        <input [attr.disabled]="disable" type="text" class="form-control" id="id" (change)="getUserById()" required
+        <input  type="text" class="form-control" id="id" (change)="getUserById()" required
           placeholder="Enter id" name="id" [(ngModel)]="id">
       </div>
     </div>
@@ -48,7 +48,7 @@
             <div class="col-sm-10">
                 <select class="form-control" id="accountStatus" name="accountStatus" required [(ngModel)]="accountStatus">
                     <option class='option' *ngFor='let accountStatus of accountStatuses' [value]="accountStatus">{{accountStatus}}</option>
-                  </select>                
+                  </select>
             </div>
           </div>
     <div class="form-group">
@@ -56,6 +56,6 @@
       <div class="col-sm-3 col-md-3">
         <button type="submit" class="btn btn-primary" (click)="updateUser()">Submit</button>
       </div>
-  
+
     </div>
   </div></div>

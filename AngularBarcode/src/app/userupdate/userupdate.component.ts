@@ -33,8 +33,10 @@ export class UserupdateComponent implements OnInit {
       "password" : this.password,
       "email" : this.email,
       "role" : "local",
+      "businessName":localStorage.getItem("businessName"),
       "accountDisabledStatus" : this.accountStatus
     }
+    console.log(obj);
     this.httpService.put(url,obj).subscribe(res=>{
       console.log(res);
       alert("User updated successfully!")

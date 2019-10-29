@@ -4,7 +4,7 @@
     <div class="form-group">
       <label class="control-label col-sm-4" for="barcodeNumber">Product Id:</label>
       <div class="col-sm-10">
-        <input [attr.disabled]="disable" type="text" class="form-control" id="id" required
+        <input type="text" class="form-control" id="id" required
           placeholder="Enter id" name="id" [(ngModel)]="id">
       </div>
     </div>
@@ -13,6 +13,6 @@
       <div class="col-sm-3 col-md-3">
         <button type="submit" class="btn btn-primary" (click)="deleteProductById()">Submit</button>
       </div>
-  
+
     </div>
   </div></div>
