@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { environment } from 'src/environments/environment';
-import { AlertPromise } from 'selenium-webdriver';
-
 @Component({
-  selector: 'app-userupdate',
-  templateUrl: './userupdate.component.html',
-  styleUrls: ['./userupdate.component.css']
+  selector: 'app-globallocaluserupdate',
+  templateUrl: './globallocaluserupdate.component.html',
+  styleUrls: ['./globallocaluserupdate.component.css']
 })
-export class UserupdateComponent implements OnInit {
+export class GloballocaluserupdateComponent implements OnInit {
   public id;
   public firstName;
   public lastName;
@@ -46,7 +44,7 @@ export class UserupdateComponent implements OnInit {
     })
   }
   getUserById(){
-    let url = environment.url + "/user/local/id?id=" + this.id + "&businessName="+localStorage.getItem("businessName");
+    let url = environment.url + "/user/id?id=" + this.id;
     this.httpService.get(url).subscribe(res=>{
       console.log(res);
       let obj = Object(res);
@@ -55,6 +53,7 @@ export class UserupdateComponent implements OnInit {
       this.email = obj.email;
       this.password = obj.password;
       this.accountStatus = obj.accountDisabledStatus;
+      localStorage.setItem("businessName",obj.businessName);
     },err=>{
       console.log(err);
       alert("An error has been occurred!")

@@ -35,6 +35,15 @@ import {
   MatNativeDateModule,
   MatSortModule
 } from '@angular/material';
+import { ProductglobalComponent } from './productglobal/productglobal.component';
+import { GlobalproductupdateComponent } from './globalproductupdate/globalproductupdate.component';
+import { GlobalproductdeleteComponent } from './globalproductdelete/globalproductdelete.component';
+import { GlobalcheckedoutlistComponent } from './globalcheckedoutlist/globalcheckedoutlist.component';
+import { GlobalcheckedoutupdateComponent } from './globalcheckedoutupdate/globalcheckedoutupdate.component';
+import { GlobalcheckedoutdeleteComponent } from './globalcheckedoutdelete/globalcheckedoutdelete.component';
+import { GloballocaluserlistComponent } from './globallocaluserlist/globallocaluserlist.component';
+import { GloballocaluserupdateComponent } from './globallocaluserupdate/globallocaluserupdate.component';
+import { GloballocaluserdeleteComponent } from './globallocaluserdelete/globallocaluserdelete.component';
 const appRoutes: Routes = [
 
   { path: '', component: LoginComponent},
@@ -53,6 +62,12 @@ const appRoutes: Routes = [
   { path: 'businessaccountupdate', component: BusinessaccounteditComponent, canActivate: [AuthguardService] },
   { path: 'businessaccountdisable', component: BusinessaccountdisableComponent, canActivate: [AuthguardService] },
   { path: 'checkedoutbybusiness', component: CheckedoutitembybusinessComponent, canActivate: [AuthguardService] },
+  { path: 'productglobal', component: ProductglobalComponent, canActivate: [AuthguardService] },
+  { path: 'productglobalupdate', component: GlobalproductupdateComponent, canActivate: [AuthguardService] },
+  { path: 'productglobaldelete', component: GlobalproductdeleteComponent, canActivate: [AuthguardService] },
+  { path: 'globaluserlist', component: GloballocaluserlistComponent, canActivate: [AuthguardService] },
+  { path: 'globalupdateuser', component: GloballocaluserupdateComponent, canActivate: [AuthguardService] },
+  { path: 'globaldeleteuser', component: GloballocaluserdeleteComponent, canActivate: [AuthguardService] },
 
 
 
@@ -75,7 +90,16 @@ const appRoutes: Routes = [
     BusinessaccountaddComponent,
     BusinessaccounteditComponent,
     BusinessaccountdisableComponent,
-    CheckedoutitembybusinessComponent
+    CheckedoutitembybusinessComponent,
+    ProductglobalComponent,
+    GlobalproductupdateComponent,
+    GlobalproductdeleteComponent,
+    GlobalcheckedoutlistComponent,
+    GlobalcheckedoutupdateComponent,
+    GlobalcheckedoutdeleteComponent,
+    GloballocaluserlistComponent,
+    GloballocaluserupdateComponent,
+    GloballocaluserdeleteComponent
     ],
   imports: [
     BrowserModule,

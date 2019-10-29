@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   public isLocal;
   public role;
   public userName;
-  constructor(private router : Router){
+  constructor(public router: Router){
     setInterval(() => {    //<<<---    using ()=> syntax
       this.userName = localStorage.getItem("userName");
       this.role =  localStorage.getItem("role");
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
       }else{
 
       }
-    }, 50);  
+    }, 50);
   }
   ngOnInit(){
     localStorage.clear();

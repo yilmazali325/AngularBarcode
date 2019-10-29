@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { environment } from 'src/environments/environment';
-
 @Component({
-  selector: 'app-updateproduct',
-  templateUrl: './updateproduct.component.html',
-  styleUrls: ['./updateproduct.component.css']
+  selector: 'app-globalproductupdate',
+  templateUrl: './globalproductupdate.component.html',
+  styleUrls: ['./globalproductupdate.component.css']
 })
-export class UpdateproductComponent implements OnInit {
+export class GlobalproductupdateComponent implements OnInit {
   public barcodeNumber;
   public quantity;
   public productName;
@@ -19,7 +18,7 @@ export class UpdateproductComponent implements OnInit {
   ngOnInit() {
   }
   getProductById(){
-    let url = environment.url + "/product/id?id=" + this.id +"&businessName="+localStorage.getItem("businessName");
+    let url = environment.url + "/product/id?id=" + this.id;
     console.log("url " + url);
     this.httpService.get(url).subscribe(res=>{
       this.product = res;
