@@ -15,12 +15,16 @@ export class GlobalproductdeleteComponent implements OnInit {
   ngOnInit() {
   }
   deleteProductById(){
+    if(!this.httpService.isInt(this.id)){
+      alert("Id must be number!");
+      return;
+    }
     let url = environment.url + "/product?id=" + this.id;
     this.httpService.delete(url).subscribe(res=>{
       alert("Succesfully deleted!");
     },err=>{
-      alert(err);
-      alert("An error has been occurred!")
+      alert("There is no product with the id provided!")
+      console.log(err);
     })
   }
 }

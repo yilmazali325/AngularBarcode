@@ -24,6 +24,22 @@ export class UseraddComponent implements OnInit {
   }
 
   addUser(){
+    if(!this.firstName){
+      alert("First name can not be empty!");
+      return;
+    }else if(!this.lastName){
+      alert("Last name can not be empty!");
+      return;
+    }else if(!this.email){
+      alert("Email can not be empty!");
+      return;
+    }else if(!this.password){
+      alert("Password can not be empty!");
+      return;
+    }else{
+
+    }
+
     let obj = {
       "firstName" : this.firstName,
       "lastName" : this.lastName,
@@ -36,10 +52,10 @@ export class UseraddComponent implements OnInit {
     let url = environment.url + "/user/register";
     this.httpService.post(url,obj).subscribe(res=>{
         console.log(res);
-        alert("User has been updated!")
+        alert("User has been added!")
     },err=>{
         console.log(err);
-        alert("An error has been occurred!")
+        alert(err.error.message);
     })
 
   }

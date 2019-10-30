@@ -40,4 +40,11 @@ export class DataService {
   getCurrentUser(){
       return localStorage.getItem('currentUser');
   }
+  isInt(value) {
+    if (isNaN(value)) {
+      return false;
+    }
+    var x = parseFloat(value);
+    return (x | 0) === x;
+  }
 }

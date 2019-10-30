@@ -44,7 +44,7 @@ export class GloballocaluserupdateComponent implements OnInit {
     })
   }
   getUserById(){
-    let url = environment.url + "/user/id?id=" + this.id;
+    let url = environment.url + "/user/local/id?id=" + this.id + "&role=local";
     this.httpService.get(url).subscribe(res=>{
       console.log(res);
       let obj = Object(res);

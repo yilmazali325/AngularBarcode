@@ -14,13 +14,17 @@ export class UserdeleteComponent implements OnInit {
   ngOnInit() {
   }
   deleteUser(){
-    let url = environment.url + "/user/delete?id=" + this.id;
+    if(!this.id){
+      alert("Id can not be empty!");
+      return;
+    }
+    let url = environment.url + "/user/deletelocal?id=" + this.id + "&role=local" + "&businessName=" + localStorage.getItem("businessName");
     this.httpService.delete(url).subscribe(res=>{
       console.log(res);
       alert("User has been deleted!")
     },err=>{
       console.log(err);
-      alert("An error has been occurred!")
+      alert(err.error.message);
     })
   }
 }

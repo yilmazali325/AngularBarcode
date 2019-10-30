@@ -31,10 +31,21 @@ export class UpdateproductComponent implements OnInit {
       console.log(this.product);
     },err=>{
       console.log(err);
-      alert("An error has been occurred retriving product!")
+      alert("An error has been occurred retrieving product!")
     })
   }
   updateProduct(){
+    if(!this.httpService.isInt(this.quantity)){
+      alert("Quantity must be number!");
+      return;
+    }else if(!this.httpService.isInt(this.barcodeNumber)){
+      alert("Barcode number should only consist from numbers!");
+      return;
+    }
+    else if(this.barcodeNumber.length > 32){
+      alert("Barcode number can not have more than 32 digits!");
+      return;
+    }
     let obj = {
       "id" : this.id,
       "name":this.productName,

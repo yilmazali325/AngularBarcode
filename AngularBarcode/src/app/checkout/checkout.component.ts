@@ -40,6 +40,7 @@ export class CheckoutComponent implements OnInit {
       console.log(res);
 
     },err=>{
+      alert(err.error.message)
       console.log(err);
     })
   }

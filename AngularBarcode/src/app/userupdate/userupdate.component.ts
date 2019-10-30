@@ -26,6 +26,21 @@ export class UserupdateComponent implements OnInit {
 
   updateUser(){
     let url = environment.url + "/user/update";
+    if(!this.firstName){
+      alert("First name can not be empty!");
+      return;
+    }else if(!this.lastName){
+      alert("Last name can not be empty!");
+      return;
+    }else if(!this.email){
+      alert("Email can not be empty!");
+      return;
+    }else if(!this.password){
+      alert("Password can not be empty!");
+      return;
+    }else{
+
+    }
     let obj = {
       "id" : this.id,
       "firstName" : this.firstName,
@@ -42,11 +57,11 @@ export class UserupdateComponent implements OnInit {
       alert("User updated successfully!")
     },err=>{
       console.log(err);
-      alert("An error has been occurred!")
+      alert(err.error.message);
     })
   }
   getUserById(){
-    let url = environment.url + "/user/local/id?id=" + this.id + "&businessName="+localStorage.getItem("businessName");
+    let url = environment.url + "/user/admin/local/id?id=" + this.id + "&businessName="+localStorage.getItem("businessName") + "&role=local";
     this.httpService.get(url).subscribe(res=>{
       console.log(res);
       let obj = Object(res);

@@ -16,13 +16,25 @@ export class AddproductComponent implements OnInit {
   public productName;
   public barcodeNumber;
   public isCheckedOut = false;
-  public quantity;
+  public quantity:any;
   constructor(private httpService : DataService) { }
 
   ngOnInit() {
   }
+ 
   AddProduct(){
     let url = "http://localhost:8080/product"
+    if(!this.httpService.isInt(this.quantity)){
+      alert("Quantity must be number!");
+      return;
+    }else if(!this.httpService.isInt(this.barcodeNumber)){
+      alert("Barcode number should only consist from numbers!");
+      return;
+    }
+    else if(this.barcodeNumber.length > 32){
+      alert("Barcode number can not have more than 32 digits!");
+      return;
+    }
     let obj = {
       "barcodeNumber" : this.barcodeNumber,
       "name" :  this.productName,
@@ -30,12 +42,13 @@ export class AddproductComponent implements OnInit {
       "quantity" : this.quantity,
       "businessName" : localStorage.getItem("businessName")
       }
+      console.log(obj);
+      console.log(url);
       this.httpService.post(url,obj).subscribe(res=>{
         console.log(res);
         alert("succesfully added!");
       }, err =>{
         console.log(err);
-        alert("error");
       })
   }
 }
